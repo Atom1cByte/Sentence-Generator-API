@@ -8,7 +8,7 @@ apps = []
 for category in os.listdir("./routes"):
     if category in ["__pycache__", "__init__.py"]:
         continue
-    router = APIRouter(prefix="/"+category)
+    router = APIRouter()
     routes = []
     for route in [file[:-3] for file in os.listdir("./routes/"+category) if file.endswith(".py")]:
         exec(f"from .{category}.{route} import app as route")
